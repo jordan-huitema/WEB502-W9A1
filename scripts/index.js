@@ -18,28 +18,28 @@ function createListElemnet() {                                  // create create
             removeButton.appendChild(document.createTextNode("remove"))     // set removeButtons element value as "remove"
             removeButton.classList = "deleteButton"                         // set removeButtons element class as "deleteButton"
             li.appendChild(removeButton)                                    // add removeButton var's element to li var's element
-            removeButton.addEventListener("click", function () {
-                this.parentElement.remove()
+            removeButton.addEventListener("click", function () {            // listen for click on removeButton's element, if click registered
+                this.parentElement.remove()                                     //remove parent li element
             })
-        } else {
-            this.getElementsByClassName("deleteButton")[0].remove();
+        } else {                                                        //else
+            this.getElementsByClassName("deleteButton")[0].remove();        //remove first element with 'deleteButton' class name
         }
     });
-    input.value = ""
+    input.value = ""                                                // set value of input vars element as "" (nothing)
 }
 
-function addListAfterClick() {
-    if (inputLength() > 0) {
-        createListElemnet()
+function addListAfterClick() {                                  // create addListAfterClick function
+    if (inputLength() > 0) {                                        //if click is more than 0
+        createListElemnet()                                             // run createListElement func
     }
 }
 
-function addListAfterPress(event) {
-    if (inputLength() > 0 && event.keyCode === 13) {
-        createListElemnet()
+function addListAfterPress(event) {                             // create addListAfterPress func and pass press event as first param
+    if (inputLength() > 0 && event.keyCode === 13) {                //if input length is greater than 0 and key press is ENTER
+        createListElemnet()                                             // run createListElement func
     }
 }
 
-button.addEventListener("click", addListAfterClick)
+button.addEventListener("click", addListAfterClick)             // listen for click on button elements, run addListAfterClick func
 
-input.addEventListener("keypress", addListAfterPress)
+input.addEventListener("keypress", addListAfterPress)           // listen for key press, run addListAfterClick func
