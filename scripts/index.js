@@ -15,9 +15,9 @@ function createListElemnet() {                                  // create create
         var removeButton = document.createElement("button");            // set 'removeButton' var as new button element
         removeButton.classList.add("deleteButton");                     // add 'deleteButton' class attribute to removeButton's button element 
         if (finished) {                                                 // if finished var exists
-            removeButton.appendChild(document.createTextNode("remove"))     //
-            removeButton.classList = "deleteButton"
-            li.appendChild(removeButton)
+            removeButton.appendChild(document.createTextNode("remove"))     // set removeButtons element value as "remove"
+            removeButton.classList = "deleteButton"                         // set removeButtons element class as "deleteButton"
+            li.appendChild(removeButton)                                    // add removeButton var's element to li var's element
             removeButton.addEventListener("click", function () {
                 this.parentElement.remove()
             })
@@ -29,13 +29,17 @@ function createListElemnet() {                                  // create create
 }
 
 function addListAfterClick() {
-    if(inputLength() > 0) {
+    if (inputLength() > 0) {
         createListElemnet()
     }
 }
 
 function addListAfterPress(event) {
-    if(inputLength() > 0 && event.keyCode === 13) {
+    if (inputLength() > 0 && event.keyCode === 13) {
         createListElemnet()
     }
 }
+
+button.addEventListener("click", addListAfterClick)
+
+input.addEventListener("keypress", addListAfterPress)
