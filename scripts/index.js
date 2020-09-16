@@ -11,11 +11,11 @@ function createListElemnet() {                                  // create create
     li.appendChild(document.createTextNode(input.value));           // adds value of input var's element to li vars element value
     ul.appendChild(li);                                             // adds li var's element to ul vars element's value
     li.addEventListener("click", function () {                      // listen for click event on li element
-        var finished = this.classList.toggle("done")
-        var removeButton = document.createElement("button");
-        removeButton.classList.add("deleteButton");
-        if (finished) {
-            removeButton.appendChild(document.createTextNode("remove"))
+        var finished = this.classList.toggle("done")                    // set 'finished' var toogle class func, toggles "done" class on target element
+        var removeButton = document.createElement("button");            // set 'removeButton' var as new button element
+        removeButton.classList.add("deleteButton");                     // add 'deleteButton' class attribute to removeButton's button element 
+        if (finished) {                                                 // if finished var exists
+            removeButton.appendChild(document.createTextNode("remove"))     //
             removeButton.classList = "deleteButton"
             li.appendChild(removeButton)
             removeButton.addEventListener("click", function () {
@@ -26,4 +26,16 @@ function createListElemnet() {                                  // create create
         }
     });
     input.value = ""
+}
+
+function addListAfterClick() {
+    if(inputLength() > 0) {
+        createListElemnet()
+    }
+}
+
+function addListAfterPress(event) {
+    if(inputLength() > 0 && event.keyCode === 13) {
+        createListElemnet()
+    }
 }
